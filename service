@@ -1,0 +1,14 @@
+# Restart Remote Registry Service
+Restart-Service -Name "RemoteRegistry"
+ 
+# Restart Remote Desktop Services UserMode Port Redirector
+Restart-Service -Name "UmRdpService"
+ 
+# Restart Local Session Manager
+Restart-Service -Name "TermService"
+ 
+# Restart CNG Key Isolation
+Restart-Service -Name "KeyIso"
+ 
+# Restart Certificate Propagation
+Restart-Service -Name "CertPropSvc"
