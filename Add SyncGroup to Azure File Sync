@@ -1,0 +1,21 @@
+Create File Share:
+------------------
+Login to Storage account "ukabzfs00"
+Navigate to "File Shares"
+Click New File Share
+File Share Name: s7-public
+Tier: Cool
+Enable Backup : Default (Ensure Enabled)
+Review+Create
+ 
+Add SyncGroup to Azure File Sync:
+---------------------------------
+Navigate "Storage Sync Services" in Azure portal
+Open "hybrid-office-core-storage-sync-service"
+Click New Sync group 
+Sync group Name: ukabzfs00-Public
+Click on "Select Storage Account"
+Select ukabzfs00
+Select newly created Azure Fil Share "s7-public"
+Click "Create"
+ 
