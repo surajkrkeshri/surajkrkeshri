@@ -1,0 +1,149 @@
+
+Connected to Remote Access Agent on Server $gavvmjeavmpl001
+Last login: Tue May  3 13:40:51 2022 from 198.18.62.166
+[avaroot@pbpvmjelogst004 ~]$ df -h
+Filesystem                 Size  Used Avail Use% Mounted on
+devtmpfs                   7.8G     0  7.8G   0% /dev
+tmpfs                      7.8G  4.0K  7.8G   1% /dev/shm
+tmpfs                      7.8G  747M  7.1G  10% /run
+tmpfs                      7.8G     0  7.8G   0% /sys/fs/cgroup
+/dev/mapper/rootvg-rootlv  2.0G   80M  2.0G   4% /
+/dev/mapper/rootvg-usrlv    10G  1.9G  8.2G  19% /usr
+/dev/sdb                   256G  2.0G  254G   1% /data
+/dev/mapper/rootvg-varlv   8.0G  7.0G  1.1G  88% /var
+/dev/mapper/rootvg-tmplv   2.0G   81M  2.0G   4% /tmp
+/dev/mapper/rootvg-homelv 1014M   33M  982M   4% /home
+/dev/mapper/rootvg-optlv   2.0G  573M  1.5G  29% /opt
+/dev/sda2                  494M  163M  332M  33% /boot
+/dev/sda1                  500M  9.9M  490M   2% /boot/efi
+tmpfs                      1.6G     0  1.6G   0% /run/user/995
+tmpfs                      1.6G     0  1.6G   0% /run/user/1004
+[avaroot@pbpvmjelogst004 ~]$ cd /var
+[avaroot@pbpvmjelogst004 var]$ sudo du -k --max-depth=1 | sort -rn
+7270940 .
+3644440 ./log
+1100200 ./cache
+1097656 ./tmp
+662356  ./lib
+525468  ./opt
+240808  ./spool
+8       ./db
+0       ./yp
+0       ./preserve
+0       ./nis
+0       ./local
+0       ./kerberos
+0       ./gopher
+0       ./games
+0       ./empty
+0       ./crash
+0       ./adm
+0       ./account
+[avaroot@pbpvmjelogst004 var]$ cd ./log
+[avaroot@pbpvmjelogst004 log]$ sudo du -k --max-depth=1 | sort -rn
+3644068 .
+117100  ./qualys
+93640   ./azure
+35240   ./audit
+25372   ./sa
+384     ./rhsm
+16      ./tuned
+0       ./chrony
+0       ./anaconda
+[avaroot@pbpvmjelogst004 log]$  sudo du -sk *|sort -rn|head -n10
+2986652 messages-20220501
+142204  messages-20220424.gz
+117100  qualys
+93640   azure
+88340   messages-20220410
+74680   messages-20220417
+35240   audit
+25372   sa
+25156   secure-20220417
+9468    secure-20220424
+[avaroot@pbpvmjelogst004 log]$ ls -l mess*
+-rw------- 1 root root    2888285 May 10 19:43 messages
+-rw------- 1 root root   90453224 Apr 10 03:49 messages-20220410
+-rw------- 1 root root   76466246 Apr 17 03:41 messages-20220417
+-rw------- 1 root root  145614477 Apr 24 03:11 messages-20220424.gz
+-rw------- 1 root root 3058309256 May  1 03:33 messages-20220501
+-rw------- 1 root root    7556098 May  8 03:12 messages-20220508
+[avaroot@pbpvmjelogst004 log]$ sudo gzip -9 messages-20220410
+[avaroot@pbpvmjelogst004 log]$ sudo gzip -9 messages-20220417
+[avaroot@pbpvmjelogst004 log]$ sudo gzip -9 messages-20220501
+[avaroot@pbpvmjelogst004 log]$ sudo gzip -9 messages-20220508
+[avaroot@pbpvmjelogst004 log]$ df -h /var
+Filesystem                Size  Used Avail Use% Mounted on
+/dev/mapper/rootvg-varlv  8.0G  4.1G  3.9G  52% /var
+
+
+Connected to Remote Access Agent on Server $gavvmjeavmpl002
+Last login: Tue May 10 17:31:52 2022 from 198.18.62.165
+[avaroot@pbpvmjemongd003 ~]$ df -h
+Filesystem                 Size  Used Avail Use% Mounted on
+devtmpfs                    16G     0   16G   0% /dev
+tmpfs                       16G  4.0K   16G   1% /dev/shm
+tmpfs                       16G  914M   15G   6% /run
+tmpfs                       16G     0   16G   0% /sys/fs/cgroup
+/dev/mapper/rootvg-rootlv  2.0G   79M  2.0G   4% /
+/dev/mapper/rootvg-usrlv    10G  1.7G  8.4G  17% /usr
+/dev/sdb                   2.0T  204G  1.9T  10% /data
+/dev/mapper/rootvg-tmplv   2.0G   41M  2.0G   2% /tmp
+/dev/mapper/rootvg-homelv 1014M  436M  579M  43% /home
+/dev/mapper/rootvg-optlv   2.0G  576M  1.5G  29% /opt
+/dev/sda2                  494M  163M  332M  33% /boot
+/dev/sda1                  500M  9.9M  490M   2% /boot/efi
+/dev/mapper/rootvg-varlv   8.0G  7.0G  1.1G  87% /var
+tmpfs                      3.2G     0  3.2G   0% /run/user/995
+tmpfs                      3.2G     0  3.2G   0% /run/user/1004
+[avaroot@pbpvmjemongd003 ~]$ cd /var
+[avaroot@pbpvmjemongd003 var]$ sudo du -k --max-depth=1 | sort -rn
+7199428 .
+3539132 ./opt
+1639060 ./cache
+1097660 ./tmp
+592584  ./lib
+330964  ./log
+16      ./spool
+8       ./db
+0       ./yp
+0       ./preserve
+0       ./nis
+0       ./local
+0       ./kerberos
+0       ./gopher
+0       ./games
+0       ./empty
+0       ./crash
+0       ./adm
+0       ./account
+[avaroot@pbpvmjemongd003 var]$ du -sh /var/cache/yum/
+1.6G    /var/cache/yum/
+[avaroot@pbpvmjemongd003 var]$ 2.6G /var/cache/yum/^C
+[avaroot@pbpvmjemongd003 var]$ ^C
+[avaroot@pbpvmjemongd003 var]$ du -sh /var/cache/yum/
+1.6G    /var/cache/yum/
+[avaroot@pbpvmjemongd003 var]$ yum clean metadata
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+Repo rhui-rhel-7-server-dotnet-rhui-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content.crt
+Repo rhui-rhel-7-server-dotnet-rhui-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/key.pem
+Repo rhui-rhel-7-server-rhui-extras-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content.crt
+Repo rhui-rhel-7-server-rhui-extras-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/key.pem
+Repo rhui-rhel-7-server-rhui-rh-common-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content.crt
+Repo rhui-rhel-7-server-rhui-rh-common-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/key.pem
+Repo rhui-rhel-7-server-rhui-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content.crt
+Repo rhui-rhel-7-server-rhui-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/key.pem
+Repo rhui-rhel-7-server-rhui-supplementary-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content.crt
+Repo rhui-rhel-7-server-rhui-supplementary-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/key.pem
+Repo rhui-rhel-server-rhui-rhscl-7-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content.crt
+Repo rhui-rhel-server-rhui-rhscl-7-rpms forced skip_if_unavailable=True due to: /etc/pki/rhui/key.pem
+Cleaning repos: rhui-microsoft-azure-rhel7 rhui-rhel-7-server-dotnet-rhui-rpms rhui-rhel-7-server-rhui-extras-rpms rhui-rhel-7-server-rhui-rh-common-rpms rhui-rhel-7-server-rhui-rpms
+              : rhui-rhel-7-server-rhui-supplementary-rpms rhui-rhel-server-rhui-rhscl-7-rpms
+40 metadata files removed
+8 sqlite files removed
+0 metadata files removed
+[avaroot@pbpvmjemongd003 var]$ #
+[avaroot@pbpvmjemongd003 var]$ df -h /var
+Filesystem                Size  Used Avail Use% Mounted on
+/dev/mapper/rootvg-varlv  8.0G  5.9G  2.2G  74% /var
+[avaroot@pbpvmjemongd003 var]$ 
